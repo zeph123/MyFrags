@@ -30,7 +30,7 @@ public class Fragment3 extends Fragment {
         View view = inflater.inflate(R.layout.fragment_3, container, false);
 
         text = (TextView) view.findViewById(R.id.current);
-        button = (Button) view.findViewById(R.id.button_increase);
+        button = (Button) view.findViewById(R.id.button_decrease);
 
         fragsData = new ViewModelProvider(requireActivity()).get(FragsData.class);
 
@@ -44,12 +44,12 @@ public class Fragment3 extends Fragment {
         fragsData.counter.observe(getViewLifecycleOwner(), numberObserver);
 
         button.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Integer i = fragsData.counter.getValue();
-                    fragsData.counter.setValue(--i);
-                }
-            }
+                                      @Override
+                                      public void onClick(View view) {
+                                          Integer i = fragsData.counter.getValue();
+                                          fragsData.counter.setValue(--i);
+                                      }
+                                  }
         );
 
         return view;
